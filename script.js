@@ -1,7 +1,7 @@
 (function() {
     // Watch for new elements in the body
     var parentObserver = new MutationObserver(function(records) {
-        for (i in records) {
+        for (var i in records) {
             var record = records[i];
             for (var j = 0; j < record.addedNodes.length; j++) {
                 var node = record.addedNodes.item(j);
@@ -29,16 +29,16 @@ function scanForFrames() {
             var nameNode = frame.contentWindow.document.querySelector(".Ob2Lud.RE.EIhiV.OxDpJ");
             var name = nameNode.textContent.split(" ")[0];
 
-            frame._fluidObserver = new MutationObserver(function(elems) {
-                for (var i in elems) {
-                    elem = elems[i];
+            // add the observer to "_fluidObserver" on the frame
+            frame._fluidObserver = new MutationObserver(function(records) {
+                for (var i in records) {
+                    record = records[i];
                     // "tL8wMe xAWnQc" is a message div
-                    if (elem.target.className == "tL8wMe xAWnQc") {
-                        var notification = new Notification(name, {body: elem.addedNodes[0].data});
+                    if (record.target.className == "tL8wMe xAWnQc") {
+                        var notification = new Notification(name, {body: record.addedNodes[0].data});
                     }
                 }
             });
-            // add the observer to "_fluidObserver" on the frame
             frame._fluidObserver.observe(frame.contentWindow.document.querySelector('.hN.so.Ij'), {childList: true, subtree: true});
         }
     }
