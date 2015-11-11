@@ -17,3 +17,4 @@ as a [Fluid](http://fluidapp.com/) app, adding native OS X notifications.
 
 - First message when a new chat box is created may not notify
 - Messages you send from other devices or windows will notify for the contact you're chatting with
+- See [DEV-NOTES.md](DEV-NOTES.md) for a full list
