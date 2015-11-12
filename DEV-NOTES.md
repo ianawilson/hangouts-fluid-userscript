@@ -12,6 +12,7 @@
 - notify for first new message when a frame is created
 - don't notify for your own messages when sent from another device/window
 - show a notification for "sent a picture" instead of nothing
+- when there's a link, the notification says "undefined"
 - when there's an emoji, the notification says "undefined"
 - destroy notifications when the frame is focused
     - attach notification instances to the frame
