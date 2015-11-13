@@ -5,12 +5,16 @@
 - each chat is an iframe with an id starting "gtn_"
 - ".tk" holds message groups
 - class="tL8wMe xAWnQc" holds individual messages
+- high level class for your messages have class="pj"; their messages have class="Sn"
 
 
 ## Todo / Bugs
 
-- notify for first new message when a frame is created
+- figure out A) which variable is jQuery or B) how to include jQuery in a sane way
+    - see this: http://stackoverflow.com/questions/2246901
 - don't notify for your own messages when sent from another device/window
+    - we can do this by matching whether or not a parent has class "Sn" (their message), but it looks least awful to do this with jQuery
+- notify for first new message when a frame is created
 - show a notification for "sent a picture" instead of nothing
 - when there's a link, the notification says "undefined"
 - when there's an emoji, the notification says "undefined"
