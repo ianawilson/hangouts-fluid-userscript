@@ -14,7 +14,7 @@
     - see this: http://stackoverflow.com/questions/2246901
 - don't notify for your own messages when sent from another device/window
     - we can do this by matching whether or not a parent has class "Sn" (their message), but it looks least awful to do this with jQuery
-- notify for first new message when a frame is created
+- notify for only first new message when a frame is created
 - show a notification for "sent a picture" instead of nothing
 - when there's a link, the notification says "undefined"
 - when there's an emoji, the notification says "undefined"
