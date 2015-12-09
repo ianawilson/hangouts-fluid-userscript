@@ -37,7 +37,13 @@
                             // "tL8wMe xAWnQc" is a message div
                             // a parent with class "Sn" means it's their message (not ours)
                             if ($node.hasClass("tL8wMe") && $node.hasClass("xAWnQc") && $node.parents(".Sn").length > 0) {
-                                var notification = new Notification(name, {body: record.addedNodes[0].data});
+                                var notification = new Notification(name, {body: $node.text()});
+                            }
+
+                            // "ZLer6" is an image div
+                            // a parent with class "fHBzMd" and *without* "DKLL9c" means it's their image (not ours)
+                            else if ($node.hasClass("ZLer6") && ! $node.parents(".fHBzMd").hasClass("DKLL9c")) {
+                                var notification = new Notification(name, {body: "sent an image"});
                             }
                         }
                     });

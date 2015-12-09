@@ -4,16 +4,18 @@
 
 - each chat is an iframe with an id starting "gtn_"
 - ".tk" holds message groups
-- class="tL8wMe xAWnQc" holds individual messages
-- high level class for your messages have class="pj"; their messages have class="Sn"
+- class="tL8wMe xAWnQc" holds text messages
+    - high level class for ours: "pj"
+    - high level class for theirs "Sn"
+- class="ZLer6" holds img messages (including stickers)
+    - high level class for ours: "fHBzMd DKLL9c"
+    - high level class for theirs: "fHBzMd" (missing "DKLL9c")
+
 
 
 ## Todo / Bugs
 
 - notify for only first new message when a frame is created
-- show a notification for "sent a picture" instead of nothing
-- when there's a link, the notification says "undefined"
-- when there's an emoji, the notification says "undefined"
 - destroy notifications when the frame is focused
     - attach notification instances to the frame
     - close() notifications when a frame is focused (no longer green)
