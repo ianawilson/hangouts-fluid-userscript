@@ -31,9 +31,12 @@
                     // add the observer to "_fluidObserver" on the frame
                     frame._fluidObserver = new MutationObserver(function(records) {
                         for (var i in records) {
-                            record = records[i];
+                            var record = records[i];
+                            var $node = $(record.target);
+
                             // "tL8wMe xAWnQc" is a message div
-                            if (record.target.className == "tL8wMe xAWnQc") {
+                            // a parent with class "Sn" means it's their message (not ours)
+                            if ($node.hasClass("tL8wMe") && $node.hasClass("xAWnQc") && $node.parents(".Sn").length > 0) {
                                 var notification = new Notification(name, {body: record.addedNodes[0].data});
                             }
                         }
