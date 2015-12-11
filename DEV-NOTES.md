@@ -29,6 +29,7 @@
 - clear unread count on read
 - do we need to tear down (`MutationObserver.disconnect()`) when a frame is destroyed ??
 - clean notification & unread count when read from another device
+    - can maybe watch for the green "unread" css that gets applied to a chat frame and clear if that goes away
 
 
 ## Test Cases
