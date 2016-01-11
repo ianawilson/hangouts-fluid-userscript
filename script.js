@@ -23,7 +23,7 @@
                 var frame = frames.item(i);
 
                 // If we're not already observing on this frame
-                if (! frame.hasOwnProperty("_fluidObserver")) {
+                if (!frame.hasOwnProperty("_fluidObserver")) {
                     // Name is in class="Ob2Lud RE EIhiV OxDpJ"
                     var nameNode = frame.contentWindow.document.querySelector(".Ob2Lud.RE.EIhiV.OxDpJ");
                     var name = nameNode.textContent.split(" ")[0];
@@ -37,17 +37,24 @@
                             // "tL8wMe xAWnQc" is a message div
                             // a parent with class "Sn" means it's their message (not ours)
                             if ($node.hasClass("tL8wMe") && $node.hasClass("xAWnQc") && $node.parents(".Sn").length > 0) {
-                                var notification = new Notification(name, {body: $node.text()});
+                                var notification = new Notification(name, {
+                                    body: $node.text()
+                                });
                             }
 
                             // "ZLer6" is an image div
                             // a parent with class "fHBzMd" and *without* "DKLL9c" means it's their image (not ours)
-                            else if ($node.hasClass("ZLer6") && ! $node.parents(".fHBzMd").hasClass("DKLL9c")) {
-                                var notification = new Notification(name, {body: "sent an image"});
+                            else if ($node.hasClass("ZLer6") && !$node.parents(".fHBzMd").hasClass("DKLL9c")) {
+                                var notification = new Notification(name, {
+                                    body: "sent an image"
+                                });
                             }
                         }
                     });
-                    frame._fluidObserver.observe(frame.contentWindow.document.querySelector('.hN.so.Ij'), {childList: true, subtree: true});
+                    frame._fluidObserver.observe(frame.contentWindow.document.querySelector('.hN.so.Ij'), {
+                        childList: true,
+                        subtree: true
+                    });
                 }
             }
         }
@@ -60,14 +67,17 @@
                     var node = record.addedNodes.item(j);
                     // There seems to always be a spare "shiv_preld" sitting around, which new chats are placed into
                     // If we've added another shiv "preload" element, probably we've initialized a new chat frame
-                    if (node.id.startsWith("shiv_preld_")) {
+                    // Switch to indexOf since startsWith is missing in some instances of Fluid.
+                    if (node.id.indexOf("shiv_preld_") === 0) {
                         scanForFrames();
                     }
                 }
             }
         });
 
-        parentObserver.observe(document.body, {childList:true});
+        parentObserver.observe(document.body, {
+            childList: true
+        });
     }
 
     // load jQuery and execute the main function
