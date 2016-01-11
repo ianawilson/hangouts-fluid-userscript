@@ -12,6 +12,13 @@ as a [Fluid](http://fluidapp.com/) app, adding native OS X notifications.
 1. Paste the contents of [script.js](script.js) into the text area
 1. Reload Hangouts and enjoy!
 
+*First time making a Fluid app for Hangouts?*
+
+You'll need to change your User Agent to Chrome.
+
+1. Select the Hangouts menu (right of the Apple logo)
+1. Select "User Agent" > "Google Chrome (##) &mdash; Mac"
+
 
 ## Known Issues
 
